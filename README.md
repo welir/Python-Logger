@@ -11,7 +11,7 @@
   You may see it in repository
 
 # Inicialize
-  log = Log(<path to log dir>, <postfix log file name>)
+  log = Log('path to log dir', 'postfix log file name')
   
 # Udage
   log.addToLog('Hello world')
