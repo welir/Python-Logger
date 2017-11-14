@@ -17,6 +17,7 @@ elif platform == "win32":
     plfm = 'windows'
 
 
+
 class Log:
     file_path = os.getcwd()
     file_name = 'file_log'
@@ -56,7 +57,7 @@ class Log:
     def getLogger(self):
         return self.logger
 
-    def addToLog(self, s):
+    def addToLog(self, s, type_output='info'):
         if plfm == 'windows':
             file_ = self.file_path + "\\logs\\" + self.file_name + "_" + strftime('%d_%m_%Y', gmtime()) + ".txt"
         else:
@@ -64,7 +65,15 @@ class Log:
 
         if not os.path.isfile(file_):
             self.init_logging()
-        self.getLogger().info(s)
+
+        output_level = {'info':    0, 'warning':   1, 'debug':  2}
+
+        if output_level[type_output] == 0:
+            self.getLogger().info(s)
+        elif output_level[type_output] == 1:
+            self.getLogger().warning(s)
+        else:
+            self.getLogger().debug(s)
 
     def initLogFolder(self):
         try:
