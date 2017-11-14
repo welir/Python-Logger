@@ -4,4 +4,4 @@
     - nightly
  script:
     - cd test_loger
-    - test
+    - test.py
