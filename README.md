@@ -1,5 +1,5 @@
 # PYTHON DAILY LOGGER
-Python logging library for realtime daily logging 
+Python logging library for realtime daily logging for python version 2.7
 
 # DESCRIPTION
     The library allows you to write your logs into a text file every day. 
