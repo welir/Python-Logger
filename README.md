@@ -1,5 +1,6 @@
 # PYTHON DAILY LOGGER
-https://travis-ci.org/welir/Python-Logger.svg?branch=master
+<img src="https://travis-ci.org/welir/Python-Logger.svg?branch=master">
+
 Python logging library for realtime daily logging for python version 2.7
 
 # Description
