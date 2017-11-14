@@ -1,6 +1,5 @@
-# Python-Logger
-=============================
-  Python logging library for realtime logging 
+# PYTHON DAILY LOGGER
+Python logging library for realtime daily logging 
 
 # DESCRIPTION
     The library allows you to write your logs into a text file every day. 
@@ -9,7 +8,7 @@
     And If logfile <> currendt day file ->>> it will created.
 
 # HELLO WORLD EXAMPLE
-    You may see it in repository
+  You may see it in repository
 
 # INITIALIZE
     log = Log('path to log dir', 'postfix log file name')
