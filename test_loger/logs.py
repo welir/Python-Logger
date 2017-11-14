@@ -56,7 +56,7 @@ class Log:
         try:
             if not os.path.exists(self.file_path + "\\logs\\"):
                 os.makedirs("logs")
-        except WindowsError as e :
+        except Exception as e :
             print 'error makedir in log lib {}'.format(str(e))
         except IOError:
             print "Ошибка создания каталога logs" \
