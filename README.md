@@ -10,10 +10,10 @@
 # Hello World example
   You may see it in repository
 
-# Inicialize
+# Initialize
   log = Log('path to log dir', 'postfix log file name')
   
-# Udage
+# Usage
   log.addToLog('Hello world')
 
 
