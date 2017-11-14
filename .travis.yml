@@ -3,4 +3,5 @@
     - 2.7
     - nightly
  script:
-    - test_loger/test
+    - cd test_loger
+    - test
