@@ -54,6 +54,7 @@ class Log:
         
     def initLogFolder(self):
         try:
+            print self.file_path
             if not os.path.exists(self.file_path + "\\logs\\"):
                 os.makedirs("logs")
         except Exception as e :
