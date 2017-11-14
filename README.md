@@ -20,6 +20,7 @@ Python logging library for realtime daily logging for python version 2.7
     # without log level param
     Log.addToLog('Hello world')
         2017-11-14 12:42:20,413 - INFO - Hello world
+        
     # warning log level
     Log.addToLog('Hello world', 'warning')
         2017-11-14 12:42:20,413 - WARNING - Hello world
