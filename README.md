@@ -9,9 +9,6 @@ Python logging library for realtime daily logging for python version 2.7
     If log directory is not exist it will created. 
     And If logfile <> currendt day file ->>> it will created.
 
-# Hello world example
-  You may see it in test_loger folder
-
 # Initialize
     log = Log('path to log dir', 'postfix log file name')
   
