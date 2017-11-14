@@ -7,18 +7,18 @@ from time import strftime, gmtime
 from time import asctime
 from sys import platform
 
-
 plfm = 'windows'
 
 if platform == "linux" or platform == "linux2":
     plfm = 'linux'
 elif platform == "darwin":
-    plfm =  'OS X'
+    plfm = 'OS X'
 elif platform == "win32":
     plfm = 'windows'
 
+
 class Log:
-    file_path = "D:\\"
+    file_path = os.getcwd()
     file_name = 'file_log'
     logger = logging.getLogger()
 
@@ -58,15 +58,14 @@ class Log:
 
     def addToLog(self, s):
         if plfm == 'windows':
-            file_ = self.file_path + "\\logs\\" + self.file_name + "_" + strftime('%d_%m_%Y', gmtime())+ ".txt"
+            file_ = self.file_path + "\\logs\\" + self.file_name + "_" + strftime('%d_%m_%Y', gmtime()) + ".txt"
         else:
             file_ = self.file_path + "/logs/" + self.file_name + "_" + strftime('%d_%m_%Y', gmtime()) + ".txt"
 
-
-        if os.path.isfile(file_) != True:
-           self.init_logging()
+        if not os.path.isfile(file_):
+            self.init_logging()
         self.getLogger().info(s)
-        
+
     def initLogFolder(self):
         try:
             print self.file_path
@@ -77,7 +76,7 @@ class Log:
                 if not os.path.exists(self.file_path + "/logs/"):
                     os.makedirs("logs")
 
-        except Exception as e :
+        except Exception as e:
             print 'error makedir in log lib {}'.format(str(e))
         except IOError:
             print "Ошибка создания каталога logs" \
@@ -90,8 +89,8 @@ class Log:
             formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
             self.initLogFolder()
 
-            if (plfm == 'windows'):
-                file_ = self.file_path + "\\logs\\" + self.file_name + "_" + strftime('%d_%m_%Y', gmtime())+ ".txt"
+            if plfm == 'windows':
+                file_ = self.file_path + "\\logs\\" + self.file_name + "_" + strftime('%d_%m_%Y', gmtime()) + ".txt"
             else:
                 file_ = self.file_path + "/logs/" + self.file_name + "_" + strftime('%d_%m_%Y', gmtime()) + ".txt"
 
