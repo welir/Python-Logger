@@ -5,7 +5,17 @@ import os
 import sys
 from time import strftime, gmtime
 from time import asctime
+from sys import platform
 
+
+plfm = 'windows'
+
+if platform == "linux" or platform == "linux2":
+    plfm = 'linux'
+elif platform == "darwin":
+    plfm =  'OS X'
+elif platform == "win32":
+    plfm = 'windows'
 
 class Log:
     file_path = "D:\\"
@@ -47,7 +57,12 @@ class Log:
         return self.logger
 
     def addToLog(self, s):
-        file_ = self.file_path + "\\logs\\" + self.file_name + "_" + strftime('%d_%m_%Y', gmtime())+ ".txt"
+        if plfm == 'windows':
+            file_ = self.file_path + "\\logs\\" + self.file_name + "_" + strftime('%d_%m_%Y', gmtime())+ ".txt"
+        else:
+            file_ = self.file_path + "/logs/" + self.file_name + "_" + strftime('%d_%m_%Y', gmtime()) + ".txt"
+
+
         if os.path.isfile(file_) != True:
            self.init_logging()
         self.getLogger().info(s)
@@ -55,8 +70,13 @@ class Log:
     def initLogFolder(self):
         try:
             print self.file_path
-            if not os.path.exists(self.file_path + "\\logs\\"):
-                os.makedirs("logs")
+            if (plfm == 'windows'):
+                if not os.path.exists(self.file_path + "\\logs\\"):
+                    os.makedirs("logs")
+            else:
+                if not os.path.exists(self.file_path + "/logs/"):
+                    os.makedirs("logs")
+
         except Exception as e :
             print 'error makedir in log lib {}'.format(str(e))
         except IOError:
@@ -69,7 +89,12 @@ class Log:
             logger.setLevel(logging.DEBUG)
             formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
             self.initLogFolder()
-            file_ = self.file_path + "\\logs\\" + self.file_name + "_" + strftime('%d_%m_%Y', gmtime())+ ".txt"
+
+            if (plfm == 'windows'):
+                file_ = self.file_path + "\\logs\\" + self.file_name + "_" + strftime('%d_%m_%Y', gmtime())+ ".txt"
+            else:
+                file_ = self.file_path + "/logs/" + self.file_name + "_" + strftime('%d_%m_%Y', gmtime()) + ".txt"
+
             file_.upper()
             fh = logging.FileHandler(file_)
             fh.setLevel(logging.DEBUG)
