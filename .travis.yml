@@ -3,5 +3,4 @@
     - 2.7
     - pypy-5.7.1
  script:
-    - cd test_loger
     - python test.py
